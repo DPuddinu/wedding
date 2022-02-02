@@ -10,7 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { StoryComponent } from './pages/story/story.component';
 import { GiftsComponent } from './pages/gifts/gifts.component';
 import { InvitesComponent } from './pages/invites/invites.component';
-import {AppRoutingModule} from "./app-routing-module";
+import { AppRoutingModule } from "./app-routing-module";
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {AppRoutingModule} from "./app-routing-module";
     HomeComponent,
     StoryComponent,
     GiftsComponent,
-    InvitesComponent
+    InvitesComponent,
+    HeaderComponent,
   ],
   imports: [
     AppRoutingModule,
