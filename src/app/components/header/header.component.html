@@ -3,8 +3,8 @@
     <div class="row h-100">
       <div class="col-6 ">
         <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-6">
-            <div class="d-flex link-container flex-wrap">
+          <div class="col-6 d-none d-sm-block">
+            <div class=" d-flex link-container flex-wrap ">
               <a routerLink="/gifts">
                 Lista Nozze
               </a>
@@ -13,16 +13,19 @@
               </a>
             </div>
           </div>
-          <div class="col-6">
-            <h1>TITLE</h1>
+          <div class="col-6 d-flex justify-content-end">
+            <h1 class="m-0 title">02.02.2022</h1>
           </div>
         </div>
 
 
       </div>
-      <div class="col-6 d-flex justify-content-end align-items-center pe-3">
-        <div class="rounded rounded-1 bg-white rsvp-button d-flex justify-content-center">
-          <h1 class="text-end d-flex justify-content-center align-items-center text-black m-0">RSVP</h1>
+      <div class="col-6 d-flex justify-content-end align-items-center pe-5">
+        <div class="d-none d-sm-flex rounded-3 bg-white rsvp-button d-flex justify-content-center ">
+          <h1 class="text-end d-flex justify-content-center align-items-center text-black m-0 ">RSVP</h1>
+        </div>
+        <div class="d-block d-sm-none">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
         </div>
       </div>
     </div>

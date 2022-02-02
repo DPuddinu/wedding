@@ -11,7 +11,8 @@ import { StoryComponent } from './pages/story/story.component';
 import { GiftsComponent } from './pages/gifts/gifts.component';
 import { InvitesComponent } from './pages/invites/invites.component';
 import { AppRoutingModule } from "./app-routing-module";
-import { HeaderComponent } from './components/header/header.component';
+import {HeaderModule} from "./components/header/header.module";
+import {MaterialExampleModule} from "./material.module";
 
 
 @NgModule({
@@ -20,11 +21,12 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     StoryComponent,
     GiftsComponent,
-    InvitesComponent,
-    HeaderComponent,
+    InvitesComponent
   ],
   imports: [
     AppRoutingModule,
+    HeaderModule,
+    MaterialExampleModule,
     BrowserModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

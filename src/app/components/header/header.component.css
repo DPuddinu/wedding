@@ -14,9 +14,11 @@
   width: 5rem;
   height: 3rem;
 }
-
-h1, a {
-  color: white;
+.title {
+  color: white!important;
+}
+a {
+  color: white!important;
 }
 h1 {
   text-align: end;
