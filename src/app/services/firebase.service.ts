@@ -23,7 +23,12 @@ export interface Invite {
   surname: string,
   email: string,
   confirm: boolean,
-  participants?: string[],
+  participants?: Participant[],
   questions?: string,
   allergies?: string[]
+}
+interface Participant {
+  name: string,
+  surname: string,
+  isChild: boolean
 }

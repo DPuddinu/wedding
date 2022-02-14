@@ -16,13 +16,19 @@ export class InvitesComponent implements OnInit {
   addInvite() {
 
     const invite: Invite = {
-      name: "gino",
-      surname: "panino",
+      name: "ivo",
+      surname: "avido",
       confirm: true,
-      email: "ginopanino@gmail.com",
+      email: "ivoavido@gmail.com",
       allergies: ["cani"],
-      participants: ["pinco pallino"],
-      questions: "c'è Lillo?"
+      participants: [
+          {
+            name: "marco",
+            surname:"polo",
+            isChild: false
+          }
+        ],
+      questions: "sono puggile?"
     }
 
     this.firebase.saveInvite(invite).subscribe(() => {

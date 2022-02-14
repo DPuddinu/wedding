@@ -10,9 +10,7 @@ export class BackofficeComponent implements OnInit {
 
   invites: Invite[] = [];
 
-  constructor(private firebase: FirebaseService) {
-
-  }
+  constructor(private firebase: FirebaseService) {}
 
   ngOnInit(): void {
 
