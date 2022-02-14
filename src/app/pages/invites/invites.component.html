@@ -40,7 +40,15 @@
   <!--EMAIL-->
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input id="email" email="true" name="email" type="email" matInput name="email" [(ngModel)]="invite.email" [disabled]="!invite.confirm">
+    <input id="email"
+           email="true"
+           name="email"
+           type="email"
+           matInput
+           [required]="invite.confirm"
+           [(ngModel)]="invite.email"
+           [disabled]="!invite.confirm"
+    >
     <mat-error>Email non valida</mat-error>
   </mat-form-field>
 
