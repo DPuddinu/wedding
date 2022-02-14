@@ -1,50 +1,76 @@
-<div class="m-2 p-2  rounded shadow card d-flex flex-column invites-container">
-  <mat-form-field appearance="fill">
+<form #invitesForm="ngForm" (ngSubmit)="sendInvite()" class="m-2 p-2  rounded shadow card d-flex flex-column invites-container" matInput>
+
+  <!--NOME-->
+  <mat-form-field >
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="invite.name" required>
+    <input id="name"
+           type="text"
+           matInput
+           name="name"
+           required
+           minlength="3"
+           [(ngModel)]="invite.name">
+    <mat-error>Nome non valido</mat-error>
   </mat-form-field>
 
+  <!--COGNOME-->
   <mat-form-field appearance="fill">
     <mat-label>Cognome</mat-label>
-    <input matInput [(ngModel)]="invite.surname" required>
+    <input id="surname"
+           type="text"
+           matInput
+           name="surname"
+           required
+           minlength="2"
+           [(ngModel)]="invite.surname">
+    <mat-error>Cognome non valido</mat-error>
   </mat-form-field>
 
+  <!--CONFERMA-->
   <div class="d-flex mb-3 align-items-center">
     <p class="me-3 m-0 text-secondary ms-2">Parteciperò</p>
-    <mat-checkbox class="me-3" (change)="onConfirm(true)" [checked] = "invite.confirm">Si</mat-checkbox>
+    <mat-checkbox class="me-3"
+                  (change)="onConfirm(true)"
+                  [checked] = "invite.confirm"
+                  name="confirm"
+                  [(ngModel)]="invite.confirm"
+                  >Si</mat-checkbox>
     <mat-checkbox (change)="onConfirm(false)" [checked] = "!invite.confirm">No</mat-checkbox>
   </div>
 
+  <!--EMAIL-->
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="invite.email" [disabled]="!invite.confirm"  required >
+    <input id="email" email="true" name="email" type="email" matInput name="email" [(ngModel)]="invite.email" [disabled]="!invite.confirm">
+    <mat-error>Email non valida</mat-error>
   </mat-form-field>
 
+  <!--ALLERGIE-->
   <mat-form-field appearance="fill">
     <mat-label>Allergie</mat-label>
-    <textarea matInput [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
+    <textarea id="allergies" type="text" matInput name="allergies" [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
   </mat-form-field>
 
+  <!--DOMANDE-->
   <mat-form-field appearance="fill">
     <mat-label>Domande</mat-label>
-    <textarea matInput [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
+    <textarea id="questions" type="text" matInput name="questions" [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
   </mat-form-field>
 
   <!-- ALTRI PARTECIPANTI -->
   <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
   <div *ngFor="let part of invite.participants; let i = index">
-    <!--MORE PARTICIPANTS-->
     <div class="d-flex row">
       <div class="col-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Nome</mat-label>
-          <input matInput [(ngModel)]="part.name" [disabled]="!invite.confirm">
+          <input type="text" matInput name="partName" [(ngModel)]="part.name" [disabled]="!invite.confirm">
         </mat-form-field>
       </div>
       <div class="col-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Cognome</mat-label>
-          <input matInput [(ngModel)]="part.surname" [disabled]="!invite.confirm">
+          <input type="text" matInput name="partSurname" [(ngModel)]="part.surname" [disabled]="!invite.confirm">
         </mat-form-field>
       </div>
       <div class="col-6 d-flex align-items-center" style="padding-bottom: 1rem">
@@ -62,8 +88,8 @@
     </div>
   </div>
 
+  <!--INVIA-->
   <div class="w-100 d-flex justify-content-center align-items-center mt-2">
-    <button mat-raised-button (click)="sendInvite()" >Invia</button>
+    <button mat-raised-button type="submit" [disabled]="invitesForm.invalid">Invia</button>
   </div>
-</div>
-
+</form>

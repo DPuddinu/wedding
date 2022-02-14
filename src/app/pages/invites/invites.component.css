@@ -2,5 +2,5 @@
   max-width: 50%;
 }
 mat-form-field {
-  /*max-width: 50%*/
+  margin-bottom: 0.5rem;
 }

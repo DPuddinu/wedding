@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
-import { FormControl , Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-invites',
@@ -9,10 +8,7 @@ import { FormControl , Validators} from "@angular/forms";
 })
 export class InvitesComponent implements OnInit {
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-
   invite: Invite = {...emptyInvite};
-
 
   constructor(private firebase: FirebaseService) { }
 
@@ -21,7 +17,7 @@ export class InvitesComponent implements OnInit {
   }
 
   onError() {
-
+    // mostrare messaggio di errore
   }
 
   addParticipant() {
