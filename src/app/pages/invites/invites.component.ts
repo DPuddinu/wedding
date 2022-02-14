@@ -8,10 +8,20 @@ import {FirebaseService, Invite} from "../../services/firebase.service";
 })
 export class InvitesComponent implements OnInit {
 
+  invite: any;
+
   constructor(private firebase: FirebaseService) { }
 
   ngOnInit(): void {
   }
+
+  onError() {
+
+  }
+  onSuccess() {
+
+  }
+
 
   addInvite() {
 
@@ -31,8 +41,9 @@ export class InvitesComponent implements OnInit {
       questions: "sono puggile?"
     }
 
-    this.firebase.saveInvite(invite).subscribe(() => {
-
+    this.firebase.saveInvite(invite).subscribe({
+      next: this.onSuccess,
+      error: this.onError
     })
   }
 }

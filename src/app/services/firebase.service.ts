@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
+import { from } from 'rxjs';
+
+const COLLECTION = "invites"
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +14,10 @@ export class FirebaseService {
   constructor(public firestore: AngularFirestore) { }
 
   saveInvite(invite: Invite) : Observable<any>{
-    return of("test")
+    return from(this.firestore.collection(COLLECTION).add(invite))
   }
   getInvites() : Observable<Invite[]>{
-    return this.firestore.collection('invites').valueChanges() as Observable<Invite[]>;
+    return this.firestore.collection(COLLECTION).valueChanges() as Observable<Invite[]>
   }
 
 }
