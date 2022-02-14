@@ -2,18 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HomeComponent } from './pages/home/home.component';
 import { StoryComponent } from './pages/story/story.component';
 import { GiftsComponent } from './pages/gifts/gifts.component';
 import { InvitesComponent } from './pages/invites/invites.component';
-import { AppRoutingModule } from "./app-routing-module";
 import {HeaderModule} from "./components/header/header.module";
 import {MaterialExampleModule} from "./material.module";
-import { BackofficeComponent } from './pages/backoffice/backoffice.component';
+import {BackofficeModule} from "./pages/backoffice/backofficeModule";
+import {AppRoutingModule} from "./app-routing-module";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 
 @NgModule({
@@ -22,18 +21,17 @@ import { BackofficeComponent } from './pages/backoffice/backoffice.component';
     HomeComponent,
     StoryComponent,
     GiftsComponent,
-    InvitesComponent,
-    BackofficeComponent
+    InvitesComponent
   ],
   imports: [
     AppRoutingModule,
     HeaderModule,
+    BackofficeModule,
     MaterialExampleModule,
     BrowserModule,
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

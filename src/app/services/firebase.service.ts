@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {Observable, of} from "rxjs";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(public firebaseService: AngularFireDatabase) { }
+  constructor(public firestore: AngularFirestore) { }
 
   saveInvite(invite: Invite) : Observable<any>{
     return of("test")
   }
   getInvites() : Observable<Invite[]>{
-    return of([])
+    return this.firestore.collection('invites').valueChanges() as Observable<Invite[]>;
   }
-
 
 }
 
@@ -24,7 +23,7 @@ export interface Invite {
   surname: string,
   email: string,
   confirm: boolean,
-  participants: string[],
-  questions: string,
-  allergies: string[]
+  participants?: string[],
+  questions?: string,
+  allergies?: string[]
 }

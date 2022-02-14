@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HeaderComponent} from "./header.component";
 import {MaterialExampleModule} from "../../material.module";
 import {AppRoutingModule} from "../../app-routing-module";
+import {BackofficeComponent} from "./backoffice.component";
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [BackofficeComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
-    MaterialExampleModule,
+    MaterialExampleModule
   ],
   exports: [
-    HeaderComponent
+    BackofficeComponent
   ]
 })
-export class HeaderModule { }
+export class BackofficeModule { }

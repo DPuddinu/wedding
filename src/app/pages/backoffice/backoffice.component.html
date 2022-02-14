@@ -2,7 +2,7 @@
   <p>Name: {{invite.name}}</p>
   <p>Surname: {{invite.surname}}</p>
   <p>Confirm: {{invite.confirm? "Parteciperò" : "Non Parteciperò"}}</p>
-  <p>Participants: {{invite.participants.toString()}}</p>
-  <p>Allergies: {{invite.allergies.toString()}}</p>
-  <p>Questions: {{invite.questions}}</p>
+  <p *ngIf="invite.participants">Participants: {{invite.participants.toString()}}</p>
+  <p *ngIf="invite.allergies">Allergies: {{invite.allergies.toString()}}</p>
+  <p *ngIf="invite.questions">Questions: {{invite.questions}}</p>
 </div>

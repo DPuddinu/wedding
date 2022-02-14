@@ -19,10 +19,9 @@
 }
 a {
   color: white!important;
+  text-decoration: none;
+  cursor: pointer;
 }
 h1 {
   text-align: end;
-}
-a {
-  text-decoration: none;
 }
