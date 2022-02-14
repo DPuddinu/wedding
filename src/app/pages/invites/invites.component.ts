@@ -31,14 +31,14 @@ export class InvitesComponent implements OnInit {
 
   onSuccess() {
     this.invite = {...emptyInvite};
+    // show confirm to user
   }
 
   sendInvite() {
-    console.log(this.invite)
-    // this.firebase.saveInvite(this.invite).subscribe({
-    //   next: this.onSuccess,
-    //   error: this.onError
-    // })
+    this.firebase.saveInvite(this.invite).subscribe({
+      next: this.onSuccess,
+      error: this.onError
+    })
   }
 
   onChildConfirm(index: number, isChild: boolean) {
@@ -50,11 +50,6 @@ export class InvitesComponent implements OnInit {
 
   onConfirm(confirm: boolean) {
     this.invite.confirm = confirm
-    console.log(confirm)
-  }
-
-  onChange() {
-    console.log(this.invite)
   }
 
 }
