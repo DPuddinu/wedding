@@ -13,6 +13,7 @@ import {AppRoutingModule} from "./app-routing-module";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
     AppRoutingModule,
     HeaderModule,
     BackofficeModule,
+    FormsModule,
     MaterialExampleModule,
     BrowserModule,
     BrowserAnimationsModule,

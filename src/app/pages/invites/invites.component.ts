@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseService, Invite} from "../../services/firebase.service";
+import {emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
 
 @Component({
   selector: 'app-invites',
@@ -8,42 +8,53 @@ import {FirebaseService, Invite} from "../../services/firebase.service";
 })
 export class InvitesComponent implements OnInit {
 
-  invite: any;
+  invite: Invite = {...emptyInvite};
+
 
   constructor(private firebase: FirebaseService) { }
 
   ngOnInit(): void {
+    //load invite from localStorage if any
   }
 
   onError() {
 
   }
-  onSuccess() {
 
-  }
-
-
-  addInvite() {
-
-    const invite: Invite = {
-      name: "ivo",
-      surname: "avido",
-      confirm: true,
-      email: "ivoavido@gmail.com",
-      allergies: ["cani"],
-      participants: [
-          {
-            name: "marco",
-            surname:"polo",
-            isChild: false
-          }
-        ],
-      questions: "sono puggile?"
-    }
-
-    this.firebase.saveInvite(invite).subscribe({
-      next: this.onSuccess,
-      error: this.onError
+  addParticipant() {
+    this.invite?.participants?.push({
+      name:'',
+      surname:'',
+      isChild:false
     })
   }
+
+  onSuccess() {
+    this.invite = {...emptyInvite};
+  }
+
+  sendInvite() {
+    console.log(this.invite)
+    // this.firebase.saveInvite(this.invite).subscribe({
+    //   next: this.onSuccess,
+    //   error: this.onError
+    // })
+  }
+
+  onChildConfirm(index: number, isChild: boolean) {
+    const participant = this.invite.participants
+    if(participant && participant[index]){
+      participant[index].isChild= isChild
+    }
+  }
+
+  onConfirm(confirm: boolean) {
+    this.invite.confirm = confirm
+    console.log(confirm)
+  }
+
+  onChange() {
+    console.log(this.invite)
+  }
+
 }

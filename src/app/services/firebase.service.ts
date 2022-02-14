@@ -4,7 +4,19 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import { from } from 'rxjs';
 
 const COLLECTION = "invites"
-
+export const emptyInvite: Invite = {
+  name:'',
+  surname:'',
+  questions: '',
+  participants: [{
+    name:'',
+    surname:'',
+    isChild:false
+  }],
+  confirm: false,
+  allergies: '',
+  email: ''
+};
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +41,9 @@ export interface Invite {
   confirm: boolean,
   participants?: Participant[],
   questions?: string,
-  allergies?: string[]
+  allergies?: string
 }
-interface Participant {
+export interface Participant {
   name: string,
   surname: string,
   isChild: boolean

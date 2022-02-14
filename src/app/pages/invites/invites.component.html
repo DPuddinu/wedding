@@ -1,1 +1,74 @@
-<button (click)="addInvite()">ADD INVITE</button>
+<div class="m-2 p-2  rounded shadow card d-flex flex-column invites-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="invite.name" (change)="onChange()">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Cognome</mat-label>
+    <input matInput [(ngModel)]="invite.surname">
+  </mat-form-field>
+
+  <div class="d-flex mb-3 align-items-center">
+    <p class="me-3 m-0 text-secondary ms-2">Parteciperò</p>
+    <mat-checkbox class="me-3" (change)="onConfirm(true)" [checked] = "invite.confirm">Si</mat-checkbox>
+    <mat-checkbox (change)="onConfirm(false)" [checked] = "!invite.confirm">No</mat-checkbox>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="invite.email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Allergie</mat-label>
+    <textarea matInput [(ngModel)]="invite.allergies"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Domande</mat-label>
+    <textarea matInput [(ngModel)]="invite.questions"></textarea>
+  </mat-form-field>
+
+  <!-- ALTRI PARTECIPANTI -->
+  <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
+  <div *ngFor="let part of invite.participants; let i = index">
+    <!--MORE PARTICIPANTS-->
+    <div class="d-flex row">
+      <div class="col-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="part.name">
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Cognome</mat-label>
+          <input matInput [(ngModel)]="part.surname">
+        </mat-form-field>
+      </div>
+      <div class="col-6 d-flex align-items-center" style="padding-bottom: 1rem">
+        <!--IS CHILD-->
+        <div class="d-flex align-items-center">
+          <p class="text-secondary ms-2 me-2 mb-0">è un bambino?</p>
+          <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2">Si</mat-checkbox>
+          <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild">No</mat-checkbox>
+          <div class="d-flex align-items-center ms-4" *ngIf="i==0">
+            <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="w-100 d-flex justify-content-center align-items-center mt-2">
+    <button mat-raised-button (click)="sendInvite()">Invia</button>
+  </div>
+</div>
+
+
+
