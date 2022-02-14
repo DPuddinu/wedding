@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
+import { emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
+import { FormControl , Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-invites',
@@ -7,6 +8,8 @@ import {emptyInvite, FirebaseService, Invite} from "../../services/firebase.serv
   styleUrls: ['./invites.component.css']
 })
 export class InvitesComponent implements OnInit {
+
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   invite: Invite = {...emptyInvite};
 

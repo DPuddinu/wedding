@@ -1,12 +1,12 @@
 <div class="m-2 p-2  rounded shadow card d-flex flex-column invites-container">
   <mat-form-field appearance="fill">
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="invite.name" >
+    <input matInput [(ngModel)]="invite.name" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Cognome</mat-label>
-    <input matInput [(ngModel)]="invite.surname">
+    <input matInput [(ngModel)]="invite.surname" required>
   </mat-form-field>
 
   <div class="d-flex mb-3 align-items-center">
@@ -17,17 +17,17 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="invite.email">
+    <input matInput [(ngModel)]="invite.email" [disabled]="!invite.confirm"  required >
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Allergie</mat-label>
-    <textarea matInput [(ngModel)]="invite.allergies"></textarea>
+    <textarea matInput [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Domande</mat-label>
-    <textarea matInput [(ngModel)]="invite.questions"></textarea>
+    <textarea matInput [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
   </mat-form-field>
 
   <!-- ALTRI PARTECIPANTI -->
@@ -38,23 +38,23 @@
       <div class="col-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Nome</mat-label>
-          <input matInput [(ngModel)]="part.name">
+          <input matInput [(ngModel)]="part.name" [disabled]="!invite.confirm">
         </mat-form-field>
       </div>
       <div class="col-3">
         <mat-form-field appearance="fill" class="w-100">
           <mat-label>Cognome</mat-label>
-          <input matInput [(ngModel)]="part.surname">
+          <input matInput [(ngModel)]="part.surname" [disabled]="!invite.confirm">
         </mat-form-field>
       </div>
       <div class="col-6 d-flex align-items-center" style="padding-bottom: 1rem">
         <!--IS CHILD-->
         <div class="d-flex align-items-center">
           <p class="text-secondary ms-2 me-2 mb-0">è un bambino?</p>
-          <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2">Si</mat-checkbox>
-          <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild">No</mat-checkbox>
+          <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
+          <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild" [disabled]="!invite.confirm">No</mat-checkbox>
           <div class="d-flex align-items-center ms-4" *ngIf="i==0">
-            <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()">+</button>
+            <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()" [disabled]="!invite.confirm">+</button>
           </div>
         </div>
       </div>
@@ -63,9 +63,7 @@
   </div>
 
   <div class="w-100 d-flex justify-content-center align-items-center mt-2">
-    <button mat-raised-button (click)="sendInvite()">Invia</button>
+    <button mat-raised-button (click)="sendInvite()" >Invia</button>
   </div>
 </div>
-
-
 
