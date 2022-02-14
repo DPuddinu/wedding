@@ -31,11 +31,10 @@
     <p class="me-3 m-0 text-secondary ms-2">Parteciperò</p>
     <mat-checkbox class="me-3"
                   (change)="onConfirm(true)"
-                  [checked] = "invite.confirm"
-                  name="confirm"
-                  [(ngModel)]="invite.confirm"
-                  >Si</mat-checkbox>
-    <mat-checkbox (change)="onConfirm(false)" [checked] = "!invite.confirm">No</mat-checkbox>
+                  [checked] = "invite.confirm">Si</mat-checkbox>
+    <mat-checkbox (change)="onConfirm(false)"
+                  [checked]="!invite.confirm">No</mat-checkbox>
+
   </div>
 
   <!--EMAIL-->
