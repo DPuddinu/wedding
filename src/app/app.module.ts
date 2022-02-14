@@ -13,6 +13,7 @@ import { InvitesComponent } from './pages/invites/invites.component';
 import { AppRoutingModule } from "./app-routing-module";
 import {HeaderModule} from "./components/header/header.module";
 import {MaterialExampleModule} from "./material.module";
+import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MaterialExampleModule} from "./material.module";
     HomeComponent,
     StoryComponent,
     GiftsComponent,
-    InvitesComponent
+    InvitesComponent,
+    BackofficeComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,8 @@
+<div class="border rounded p-2" *ngFor="let invite of invites" >
+  <p>Name: {{invite.name}}</p>
+  <p>Surname: {{invite.surname}}</p>
+  <p>Confirm: {{invite.confirm? "Parteciperò" : "Non Parteciperò"}}</p>
+  <p>Participants: {{invite.participants.toString()}}</p>
+  <p>Allergies: {{invite.allergies.toString()}}</p>
+  <p>Questions: {{invite.questions}}</p>
+</div>
