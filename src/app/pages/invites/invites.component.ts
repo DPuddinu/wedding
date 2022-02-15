@@ -34,6 +34,11 @@ export class InvitesComponent implements OnInit {
   }
 
   sendInvite() {
+    const newInvite = {...this.invite}
+    const participants = newInvite.participants
+    if(participants && participants[participants.length-1].name===''){
+      participants.pop()
+    }
     this.firebase.saveInvite(this.invite).subscribe({
       next: this.onSuccess,
       error: this.onError

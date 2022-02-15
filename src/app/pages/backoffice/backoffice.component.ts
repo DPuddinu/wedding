@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseService, Invite} from "../../services/firebase.service";
+import {FirebaseService, Invite, Participant} from "../../services/firebase.service";
 
 @Component({
   selector: 'app-backoffice',
@@ -9,6 +9,7 @@ import {FirebaseService, Invite} from "../../services/firebase.service";
 export class BackofficeComponent implements OnInit {
 
   invites: Invite[] = [];
+  children: number = 0;
 
   constructor(private firebase: FirebaseService) {}
 
@@ -16,9 +17,15 @@ export class BackofficeComponent implements OnInit {
 
     this.firebase.getInvites().subscribe(invites => {
       this.invites = invites
+
+      this.children=0
+      this.invites.forEach(invite => {
+        this.children += this.countChildren(invite.participants = [])
+      })
+      console.log(this.children)
     })
-
-    // this.firebase.getInvites().subscribe((invites) => this.invites = invites)
   }
-
+  countChildren(participants: Participant[]) {
+    return participants.filter(participant => participant.isChild).length
+  }
 }
