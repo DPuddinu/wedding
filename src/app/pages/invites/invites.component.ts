@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
+// @ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-invites',
@@ -22,6 +24,7 @@ export class InvitesComponent implements OnInit {
 
   addParticipant() {
     this.invite?.participants?.push({
+      id: uuidv4(),
       name:'',
       surname:'',
       isChild:false

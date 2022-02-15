@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import { from } from 'rxjs';
+// @ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 
 const COLLECTION = "invites"
 export const emptyInvite: Invite = {
+  id: uuidv4(),
   name:'',
   surname:'',
   questions: '',
   participants: [{
+    id: uuidv4(),
     name:'',
     surname:'',
     isChild:false
@@ -28,13 +32,14 @@ export class FirebaseService {
   saveInvite(invite: Invite) : Observable<any>{
     return from(this.firestore.collection(COLLECTION).add(invite))
   }
-  getInvites() : Observable<Invite[]>{
-    return this.firestore.collection(COLLECTION).valueChanges() as Observable<Invite[]>
+  getInvites() : Observable<any>{
+    return this.firestore.collection(COLLECTION).valueChanges() as Observable<any>
   }
 
 }
 
 export interface Invite {
+  id: string,
   name: string,
   surname: string,
   email: string,
@@ -44,6 +49,7 @@ export interface Invite {
   allergies?: string
 }
 export interface Participant {
+  id: string,
   name: string,
   surname: string,
   isChild: boolean

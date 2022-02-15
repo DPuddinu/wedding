@@ -16,6 +16,7 @@ export class BackofficeComponent implements OnInit {
   ngOnInit(): void {
 
     this.firebase.getInvites().subscribe(invites => {
+      console.log(invites)
       this.invites = invites
 
       this.children=0
