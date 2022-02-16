@@ -18,12 +18,14 @@ p {
   right: -15px;
   top: -15px;
   border: 1px solid #e0e0e0;
-  background-color: #eeeeee;
+  background-color: #d32f2f;
+
 
 }
 mat-icon {
-  margin-left: 2px;
-  margin-top: 2px;
-  color: #d32f2f;
+  margin-left: 3.5px;
+  margin-top: 4px;
+  color: #eeeeee;
   cursor: pointer;
+  font-size: 21px;
 }

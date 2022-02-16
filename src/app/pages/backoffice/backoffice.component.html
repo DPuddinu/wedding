@@ -1,8 +1,8 @@
 <div class="bg-dark bg-opacity-10 row w-100 m-0 backoffice-container">
 
   <div class="bg-white total-card p-2 col-1 text-center">
-    <p><strong>Totale conferme:</strong>{{" " +totalConfirms}}</p>
-    <p><strong>Totale bambini:</strong>{{" " +totalChildren}}</p>
+    <h3><strong>Totale conferme:</strong>{{" " +totalConfirms}}</h3>
+    <h3><strong>Totale bambini:</strong>{{" " +totalChildren}}</h3>
   </div>
   <div class="col-9 ">
     <div *ngFor="let invite of invites" class="d-flex p-3 position-relative">
@@ -20,14 +20,14 @@
           </div>
           <div class="col-6">
             <p *ngIf="invite.participants && invite.participants.length>0">
-            <div class="d-flex">
+            <div class="d-flex mt-3">
               <strong class="me-2">Partecipanti:</strong>
               <div>
                 <p *ngFor="let participant of invite.participants" class="m-0 text">{{participant.name + " "+ participant.surname}}</p>
               </div>
             </div>
             <p class="ms-0"><strong>Bambini:</strong>{{" " +countChildren(invite.participants? invite.participants : [])}}</p>
-            <p *ngIf="invite.allergies" class="ms-0"><strong>Allergie:</strong>{{" " +invite.allergies}}</p>
+            <p *ngIf="invite.allergies" class="ms-0"><strong>Restrizioni alimentari:</strong>{{" " +invite.allergies}}</p>
           </div>
         </div>
 

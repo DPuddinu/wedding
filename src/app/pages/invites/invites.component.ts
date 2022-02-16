@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { emptyInvite, FirebaseService, Invite} from "../../services/firebase.service";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmDialogComponent} from "../../components/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-invites',
@@ -12,7 +14,7 @@ export class InvitesComponent implements OnInit {
 
   invite: Invite = {...emptyInvite};
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(private firebase: FirebaseService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     //load invite from localStorage if any
@@ -32,8 +34,7 @@ export class InvitesComponent implements OnInit {
   }
 
   onSuccess() {
-    this.invite = {...emptyInvite};
-    // show confirm to user
+    this.openDialog()
   }
 
   sendInvite() {
@@ -43,9 +44,15 @@ export class InvitesComponent implements OnInit {
       participants.pop()
     }
     this.firebase.saveInvite(this.invite).subscribe({
-      next: this.onSuccess,
+      next: () => {
+        this.onSuccess();
+      },
       error: this.onError
     })
+  }
+
+  openDialog(): void {
+    this.dialog.open(ConfirmDialogComponent, {data: {}});
   }
 
   onChildConfirm(index: number, isChild: boolean) {
