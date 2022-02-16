@@ -1,31 +1,37 @@
 <div class="h-100 w-100 bg-dark bg-opacity-10 d-flex">
   <form #invitesForm="ngForm" class="m-2 p-2 rounded shadow card invites-container" matInput>
 
-    <!--NOME-->
-    <mat-form-field appearance="fill" class="w-50">
-      <mat-label>Nome</mat-label>
-      <input id="name"
-             type="text"
-             matInput
-             name="name"
-             required
-             minlength="3"
-             [(ngModel)]="invite.name">
-      <mat-error>Nome non valido</mat-error>
-    </mat-form-field>
+    <div class="row">
+      <div class="col-6">
+        <!--NOME-->
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Nome</mat-label>
+          <input id="name"
+                 type="text"
+                 matInput
+                 name="name"
+                 required
+                 minlength="3"
+                 [(ngModel)]="invite.name">
+          <mat-error>Nome non valido</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <!--COGNOME-->
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Cognome</mat-label>
+          <input id="surname"
+                 type="text"
+                 matInput
+                 name="surname"
+                 required
+                 minlength="2"
+                 [(ngModel)]="invite.surname">
+          <mat-error>Cognome non valido</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
-    <!--COGNOME-->
-    <mat-form-field appearance="fill" class="w-50">
-      <mat-label>Cognome</mat-label>
-      <input id="surname"
-             type="text"
-             matInput
-             name="surname"
-             required
-             minlength="2"
-             [(ngModel)]="invite.surname">
-      <mat-error>Cognome non valido</mat-error>
-    </mat-form-field>
 
     <!--CONFERMA-->
     <div class="d-flex mb-3 align-items-center">
@@ -39,7 +45,7 @@
     </div>
 
     <!--EMAIL-->
-    <mat-form-field appearance="fill" class="w-50">
+    <mat-form-field appearance="fill" class="w-100">
       <mat-label>Email</mat-label>
       <input id="email"
              email="true"
@@ -53,17 +59,26 @@
       <mat-error>Email non valida</mat-error>
     </mat-form-field>
 
-    <!--ALLERGIE-->
-    <mat-form-field appearance="fill" class="w-50">
-      <mat-label>Allergie</mat-label>
-      <textarea id="allergies" type="text" matInput name="allergies" [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
-    </mat-form-field>
+    <div class="row">
+      <div class="col-6 w" >
+        <!--ALLERGIE-->
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Allergie</mat-label>
+          <textarea id="allergies" type="text" matInput name="allergies" [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <!--DOMANDE-->
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Domande</mat-label>
+          <textarea id="questions" type="text" matInput name="questions" [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
 
-    <!--DOMANDE-->
-    <mat-form-field appearance="fill" class="w-50">
-      <mat-label>Domande</mat-label>
-      <textarea id="questions" type="text" matInput name="questions" [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
-    </mat-form-field>
+
+
+
 
     <!-- ALTRI PARTECIPANTI -->
     <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
