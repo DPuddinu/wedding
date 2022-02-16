@@ -1,28 +1,36 @@
-<div class="bg-dark bg-opacity-10 vh-100">
-  <div *ngFor="let invite of invites" class="d-flex p-2 ">
-    <div class="card shadow-sm">
-      <div class="row">
-        <div class="col-6">
-          <p><strong>Nome:</strong>{{" " +invite.name}}</p>
-          <p><strong>Cognome:</strong>{{" " +invite.surname}}</p>
-          <p><strong>Conferma:</strong>{{" " +invite.confirm? " Si" : " No"}}</p>
-          <p *ngIf="invite.questions" ><strong>Domande:</strong>{{" " +invite.questions}}</p>
+<div class="bg-dark bg-opacity-10 row w-100 m-0 backoffice-container">
 
-        </div>
-        <div class="col-6">
-          <p *ngIf="invite.participants && invite.participants.length>0">
-          <div class="d-flex">
-            <strong class="me-2">Partecipanti:</strong>
-            <div>
-              <p *ngFor="let participant of invite.participants" class="m-0 text">{{participant.name + " "+ participant.surname}}</p>
-            </div>
+  <div class="bg-white total-card p-2 col-1 text-center ">
+    <p><strong>Totale conferme:</strong>{{" " +totalConfirms}}</p>
+    <p><strong>Totale bambini:</strong>{{" " +totalChildren}}</p>
+  </div>
+  <div class="col-9 ">
+    <div *ngFor="let invite of invites" class="d-flex p-2 ">
+      <div class="invite-card card shadow-sm">
+        <div class="row">
+          <div class="col-6">
+            <p><strong>Nome:</strong>{{" " +invite.name}}</p>
+            <p><strong>Cognome:</strong>{{" " +invite.surname}}</p>
+            <p><strong>Conferma:</strong><span [ngClass]="invite.confirm? 'text-success':'text-danger'" class="fw-bold">{{" " +invite.confirm? " Si" : " No"}}</span></p>
+            <p *ngIf="invite.questions" ><strong>Domande:</strong>{{" " +invite.questions}}</p>
+
           </div>
-          <p class="ms-0"><strong>Bambini:</strong>{{" " +countChildren(invite.participants? invite.participants : [])}}</p>
-          <p *ngIf="invite.allergies" class="ms-0"><strong>Allergie:</strong>{{" " +invite.allergies}}</p>
+          <div class="col-6">
+            <p *ngIf="invite.participants && invite.participants.length>0">
+            <div class="d-flex">
+              <strong class="me-2">Partecipanti:</strong>
+              <div>
+                <p *ngFor="let participant of invite.participants" class="m-0 text">{{participant.name + " "+ participant.surname}}</p>
+              </div>
+            </div>
+            <p class="ms-0"><strong>Bambini:</strong>{{" " +countChildren(invite.participants? invite.participants : [])}}</p>
+            <p *ngIf="invite.allergies" class="ms-0"><strong>Allergie:</strong>{{" " +invite.allergies}}</p>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
+
 </div>
 

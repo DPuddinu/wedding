@@ -10,6 +10,7 @@ export class BackofficeComponent implements OnInit {
 
   invites: Invite[] = [];
   totalChildren: number = 0;
+  totalConfirms: number = 0;
 
   constructor(private firebase: FirebaseService) {}
 
@@ -19,10 +20,11 @@ export class BackofficeComponent implements OnInit {
 
       this.invites.forEach(invite => {
         this.totalChildren += this.countChildren(invite.participants)
+        this.totalConfirms += invite.confirm? 1:0
       })
-      console.log(this.totalChildren)
     })
   }
+
   countChildren(participants: Participant[] = []) {
     return participants.filter(participant => participant.isChild).length
   }

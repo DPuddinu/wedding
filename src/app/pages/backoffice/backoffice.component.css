@@ -1,6 +1,12 @@
 p {
   margin: 1rem;
 }
-.card {
+.invite-card {
   width: 30vw;
+}
+.total-card {
+  width: 10vw;
+}
+.backoffice-container {
+  min-height: 100%;
 }
