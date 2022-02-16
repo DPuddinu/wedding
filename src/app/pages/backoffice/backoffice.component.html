@@ -11,7 +11,7 @@
           <div class="col-6">
             <p><strong>Nome:</strong>{{" " +invite.name}}</p>
             <p><strong>Cognome:</strong>{{" " +invite.surname}}</p>
-            <p><strong>Conferma:</strong><span [ngClass]="invite.confirm? 'text-success':'text-danger'" class="fw-bold">{{" " +invite.confirm? " Si" : " No"}}</span></p>
+            <p><strong>Conferma:</strong><span [ngClass]="invite.confirm? 'text-success':'text-danger'" class="fw-bold">{{" " +yesOrNo(invite)}}</span></p>
             <p *ngIf="invite.questions" ><strong>Domande:</strong>{{" " +invite.questions}}</p>
 
           </div>
