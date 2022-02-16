@@ -5,7 +5,10 @@ import { from } from 'rxjs';
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
 
-const COLLECTION = "invites"
+import { environment } from '../../environments/environment';
+
+const COLLECTION = environment.dbEndpoint
+
 export const emptyInvite: Invite = {
   name:'',
   surname:'',
@@ -34,7 +37,7 @@ export class FirebaseService {
   getInvites() : Observable<Invite[]>{
     return this.firestore.collection(COLLECTION).valueChanges({idField: 'id'}) as Observable<Invite[]>
   }
-  removeInviteById(inviteId: string) {
+  removeInviteById(inviteId = '') {
     return from(this.firestore.doc(COLLECTION + "/"+inviteId).delete());
   }
 }

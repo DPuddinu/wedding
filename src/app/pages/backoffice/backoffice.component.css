@@ -10,3 +10,20 @@ p {
 .backoffice-container {
   min-height: 100%;
 }
+.delete-icon{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 1000;
+  right: -15px;
+  top: -15px;
+  border: 1px solid #e0e0e0;
+  background-color: #eeeeee;
+
+}
+mat-icon {
+  margin-left: 2px;
+  margin-top: 2px;
+  color: #d32f2f;
+  cursor: pointer;
+}

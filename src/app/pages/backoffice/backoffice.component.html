@@ -1,12 +1,15 @@
 <div class="bg-dark bg-opacity-10 row w-100 m-0 backoffice-container">
 
-  <div class="bg-white total-card p-2 col-1 text-center ">
+  <div class="bg-white total-card p-2 col-1 text-center">
     <p><strong>Totale conferme:</strong>{{" " +totalConfirms}}</p>
     <p><strong>Totale bambini:</strong>{{" " +totalChildren}}</p>
   </div>
   <div class="col-9 ">
-    <div *ngFor="let invite of invites" class="d-flex p-2 ">
+    <div *ngFor="let invite of invites" class="d-flex p-3 position-relative">
       <div class="invite-card card shadow-sm">
+        <div class="rounded-circle  delete-icon shadow-sm" (click)="openDialog(invite)">
+          <mat-icon>delete</mat-icon>
+        </div>
         <div class="row">
           <div class="col-6">
             <p><strong>Nome:</strong>{{" " +invite.name}}</p>

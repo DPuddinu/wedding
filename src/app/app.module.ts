@@ -14,6 +14,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {FormsModule} from "@angular/forms";
+import { CustomDialogComponent } from './components/custom-dialog/custom-dialog.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     StoryComponent,
     GiftsComponent,
-    InvitesComponent
+    InvitesComponent,
+    CustomDialogComponent
   ],
   imports: [
     AppRoutingModule,
