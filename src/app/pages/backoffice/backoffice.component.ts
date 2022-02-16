@@ -16,6 +16,7 @@ export class BackofficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.firebase.getInvites().subscribe((invites:Invite[]) => {
+      console.log(invites)
       this.invites = invites
 
       this.invites.forEach(invite => {
@@ -26,6 +27,9 @@ export class BackofficeComponent implements OnInit {
         }
       })
     })
+
+
+
   }
   yesOrNo(invite:Invite){
     return invite.confirm? "Si" :"No"

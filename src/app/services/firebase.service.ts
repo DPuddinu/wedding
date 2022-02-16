@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const COLLECTION = "invites"
 export const emptyInvite: Invite = {
-  id: uuidv4(),
   name:'',
   surname:'',
   questions: '',
@@ -32,19 +31,21 @@ export class FirebaseService {
   saveInvite(invite: Invite) : Observable<any>{
     return from(this.firestore.collection(COLLECTION).add(invite))
   }
-  getInvites() : any{
-    return this.firestore.collection(COLLECTION).valueChanges()
+  getInvites() : Observable<Invite[]>{
+    return this.firestore.collection(COLLECTION).valueChanges({idField: 'id'}) as Observable<Invite[]>
   }
-
+  removeInviteById(inviteId: string) {
+    return from(this.firestore.doc(COLLECTION + "/"+inviteId).delete());
+  }
 }
 
 export interface Invite {
-  id: string,
+  id?: string,
   name: string,
   surname: string,
   email: string,
   confirm: boolean,
-  participants?: Participant[],
+  participants: Participant[],
   questions?: string,
   allergies?: string
 }
