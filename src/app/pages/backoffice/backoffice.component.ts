@@ -21,6 +21,7 @@ export class BackofficeComponent implements OnInit {
       this.invites.forEach(invite => {
         this.totalChildren += this.countChildren(invite.participants)
         this.totalConfirms += invite.confirm? 1:0
+        this.totalConfirms += invite.participants? invite.participants.length : 0
       })
     })
   }
