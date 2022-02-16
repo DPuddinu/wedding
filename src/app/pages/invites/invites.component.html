@@ -1,104 +1,107 @@
-<form #invitesForm="ngForm" class="m-2 p-2 bg-warning bg-opacity-10 rounded shadow card d-flex flex-column invites-container" matInput>
+<div class="h-100 w-100 bg-dark bg-opacity-10 d-flex">
+  <form #invitesForm="ngForm" class="m-2 p-2 rounded shadow card invites-container" matInput>
 
-  <!--NOME-->
-  <mat-form-field appearance="fill" class="w-50">
-    <mat-label>Nome</mat-label>
-    <input id="name"
-           type="text"
-           matInput
-           name="name"
-           required
-           minlength="3"
-           [(ngModel)]="invite.name">
-    <mat-error>Nome non valido</mat-error>
-  </mat-form-field>
+    <!--NOME-->
+    <mat-form-field appearance="fill" class="w-50">
+      <mat-label>Nome</mat-label>
+      <input id="name"
+             type="text"
+             matInput
+             name="name"
+             required
+             minlength="3"
+             [(ngModel)]="invite.name">
+      <mat-error>Nome non valido</mat-error>
+    </mat-form-field>
 
-  <!--COGNOME-->
-  <mat-form-field appearance="fill" class="w-50">
-    <mat-label>Cognome</mat-label>
-    <input id="surname"
-           type="text"
-           matInput
-           name="surname"
-           required
-           minlength="2"
-           [(ngModel)]="invite.surname">
-    <mat-error>Cognome non valido</mat-error>
-  </mat-form-field>
+    <!--COGNOME-->
+    <mat-form-field appearance="fill" class="w-50">
+      <mat-label>Cognome</mat-label>
+      <input id="surname"
+             type="text"
+             matInput
+             name="surname"
+             required
+             minlength="2"
+             [(ngModel)]="invite.surname">
+      <mat-error>Cognome non valido</mat-error>
+    </mat-form-field>
 
-  <!--CONFERMA-->
-  <div class="d-flex mb-3 align-items-center">
-    <p class="me-3 m-0 text-secondary ms-2">Parteciperò</p>
-    <mat-checkbox class="me-3"
-                  (change)="onConfirm(true)"
-                  [checked] = "invite.confirm">Si</mat-checkbox>
-    <mat-checkbox (change)="onConfirm(false)"
-                  [checked]="!invite.confirm">No</mat-checkbox>
-
-  </div>
-
-  <!--EMAIL-->
-  <mat-form-field appearance="fill" class="w-50">
-    <mat-label>Email</mat-label>
-    <input id="email"
-           email="true"
-           name="email"
-           type="email"
-           matInput
-           [required]="invite.confirm"
-           [(ngModel)]="invite.email"
-           [disabled]="!invite.confirm"
-    >
-    <mat-error>Email non valida</mat-error>
-  </mat-form-field>
-
-  <!--ALLERGIE-->
-  <mat-form-field appearance="fill" class="w-50">
-    <mat-label>Allergie</mat-label>
-    <textarea id="allergies" type="text" matInput name="allergies" [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
-  </mat-form-field>
-
-  <!--DOMANDE-->
-  <mat-form-field appearance="fill" class="w-50">
-    <mat-label>Domande</mat-label>
-    <textarea id="questions" type="text" matInput name="questions" [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
-  </mat-form-field>
-
-  <!-- ALTRI PARTECIPANTI -->
-  <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
-  <div *ngFor="let part of invite.participants; let i = index">
-    <div class="d-flex row">
-      <div class="col-3">
-        <!--NOME-->
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label *ngIf="part.name === ''">Nome</mat-label>
-          <input type="text" matInput name="partName" [(ngModel)]="part.name" [placeholder]="part.name" [disabled]="!invite.confirm">
-        </mat-form-field>
-      </div>
-      <!--COGNOME-->
-      <div class="col-3">
-        <mat-form-field appearance="fill" class="w-100">
-          <mat-label *ngIf="part.surname === ''">Cognome</mat-label>
-          <input type="text" matInput name="partSurname" [(ngModel)]="part.surname" [placeholder]="part.surname" [disabled]="!invite.confirm">
-        </mat-form-field>
-      </div>
-      <div class="col-6 d-flex align-items-center" style="padding-bottom: 1rem">
-        <!--IS CHILD-->
-        <div class="d-flex align-items-center">
-          <p class="text-secondary ms-2 me-2 mb-0">è un bambino?</p>
-          <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
-          <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild" [disabled]="!invite.confirm">No</mat-checkbox>
-          <div class="d-flex align-items-center ms-4" *ngIf="i==0">
-            <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()" [disabled]="!invite.confirm">+</button>
-          </div>
-        </div>
-      </div>
+    <!--CONFERMA-->
+    <div class="d-flex mb-3 align-items-center">
+      <p class="me-3 m-0 text-secondary ms-2">Parteciperò</p>
+      <mat-checkbox class="me-3"
+                    (change)="onConfirm(true)"
+                    [checked] = "invite.confirm">Si</mat-checkbox>
+      <mat-checkbox (change)="onConfirm(false)"
+                    [checked]="!invite.confirm">No</mat-checkbox>
 
     </div>
-  </div>
 
-  <!--INVIA-->
-  <div class="w-100 d-flex justify-content-center align-items-center mt-2">
-    <button mat-raised-button type="submit" [disabled]="invitesForm.invalid" (click)="sendInvite()">Invia</button>
-  </div>
-</form>
+    <!--EMAIL-->
+    <mat-form-field appearance="fill" class="w-50">
+      <mat-label>Email</mat-label>
+      <input id="email"
+             email="true"
+             name="email"
+             type="email"
+             matInput
+             [required]="invite.confirm"
+             [(ngModel)]="invite.email"
+             [disabled]="!invite.confirm"
+      >
+      <mat-error>Email non valida</mat-error>
+    </mat-form-field>
+
+    <!--ALLERGIE-->
+    <mat-form-field appearance="fill" class="w-50">
+      <mat-label>Allergie</mat-label>
+      <textarea id="allergies" type="text" matInput name="allergies" [(ngModel)]="invite.allergies" [disabled]="!invite.confirm"></textarea>
+    </mat-form-field>
+
+    <!--DOMANDE-->
+    <mat-form-field appearance="fill" class="w-50">
+      <mat-label>Domande</mat-label>
+      <textarea id="questions" type="text" matInput name="questions" [(ngModel)]="invite.questions" [disabled]="!invite.confirm"></textarea>
+    </mat-form-field>
+
+    <!-- ALTRI PARTECIPANTI -->
+    <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
+    <div *ngFor="let part of invite.participants; let i = index">
+      <div class="d-flex row">
+        <div class="col-3">
+          <!--NOME-->
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label *ngIf="part.name === ''">Nome</mat-label>
+            <input type="text" matInput name="partName" [(ngModel)]="part.name" [placeholder]="part.name" [disabled]="!invite.confirm">
+          </mat-form-field>
+        </div>
+        <!--COGNOME-->
+        <div class="col-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label *ngIf="part.surname === ''">Cognome</mat-label>
+            <input type="text" matInput name="partSurname" [(ngModel)]="part.surname" [placeholder]="part.surname" [disabled]="!invite.confirm">
+          </mat-form-field>
+        </div>
+        <div class="col-6 d-flex align-items-center" style="padding-bottom: 1rem">
+          <!--IS CHILD-->
+          <div class="d-flex align-items-center">
+            <p class="text-secondary ms-2 me-2 mb-0">è un bambino?</p>
+            <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
+            <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild" [disabled]="!invite.confirm">No</mat-checkbox>
+            <div class="d-flex align-items-center ms-4" *ngIf="i==0">
+              <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()" [disabled]="!invite.confirm">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--INVIA-->
+    <div class="w-100 d-flex justify-content-center align-items-center mt-2">
+      <button mat-raised-button type="submit" [disabled]="invitesForm.invalid" (click)="sendInvite()">Invia</button>
+    </div>
+  </form>
+
+</div>

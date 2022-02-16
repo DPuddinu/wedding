@@ -1,6 +1,9 @@
 .invites-container {
   max-width: 50%;
 }
+form {
+  height: fit-content;
+}
 mat-form-field {
   margin-bottom: 0.5rem;
 }
