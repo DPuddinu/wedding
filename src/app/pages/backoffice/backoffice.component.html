@@ -1,44 +1,28 @@
-<div class="">
-  <div *ngFor="let invite of invites" class="p-2">
-    <mat-accordion class="m-1">
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <!--SUMMARY-->
-            <div class="d-flex">
-              <p>{{invite.name}}</p>
-              <p>{{invite.surname}}</p>
-              <p>{{invite.confirm? "Si" : "No"}}</p>
-              <p>{{"Bambini: "+countChildren(invite.participants? invite.participants : [])}}</p>
+<div class="bg-dark bg-opacity-10 vh-100">
+  <div *ngFor="let invite of invites" class="d-flex p-2 ">
+    <div class="card shadow-sm">
+      <div class="row">
+        <div class="col-6">
+          <p><strong>Nome:</strong>{{" " +invite.name}}</p>
+          <p><strong>Cognome:</strong>{{" " +invite.surname}}</p>
+          <p><strong>Conferma:</strong>{{" " +invite.confirm? " Si" : " No"}}</p>
+          <p *ngIf="invite.questions" ><strong>Domande:</strong>{{" " +invite.questions}}</p>
+
+        </div>
+        <div class="col-6">
+          <p *ngIf="invite.participants && invite.participants.length>0">
+          <div class="d-flex">
+            <strong class="me-2">Partecipanti:</strong>
+            <div>
+              <p *ngFor="let participant of invite.participants" class="m-0 text">{{participant.name + " "+ participant.surname}}</p>
             </div>
-          </mat-panel-title>
-          <mat-panel-description>
+          </div>
+          <p class="ms-0"><strong>Bambini:</strong>{{" " +countChildren(invite.participants? invite.participants : [])}}</p>
+          <p *ngIf="invite.allergies" class="ms-0"><strong>Allergie:</strong>{{" " +invite.allergies}}</p>
+        </div>
+      </div>
 
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>This is the primary content of the panel.</p>
-      </mat-expansion-panel>
-
-    </mat-accordion>
+    </div>
   </div>
-
-
-
-
-
-
-<!--    <div *ngIf="invite.participants">-->
-<!--      Partecipanti:-->
-<!--      <div *ngFor="let participant of invite.participants" class="ms-5">-->
-<!--        <p>Name: {{participant.name}}</p>-->
-<!--        <p>Surname: {{participant.surname}}</p>-->
-<!--        <p>è un bambino: {{participant.isChild? "si": "no"}}</p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <p *ngIf="invite.allergies">Allergies: {{invite.allergies.toString()}}</p>-->
-<!--    <p *ngIf="invite.questions">Questions: {{invite.questions}}</p>-->
-
-
 </div>
-
 
