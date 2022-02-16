@@ -33,7 +33,11 @@ export class BackofficeComponent implements OnInit {
   deleteInvite = (invite:Invite) => {
     this.firebase.removeInviteById(invite.id).subscribe(t=> {
         // delete invites from list
-
+      if(invite.confirm){
+        this.totalConfirms -=1
+        this.totalConfirms -= invite.participants.length
+        this.totalChildren -= this.countChildren(invite.participants)
+      }
     })
   }
 
