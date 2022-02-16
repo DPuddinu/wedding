@@ -32,8 +32,8 @@ export class FirebaseService {
   saveInvite(invite: Invite) : Observable<any>{
     return from(this.firestore.collection(COLLECTION).add(invite))
   }
-  getInvites() : Observable<any>{
-    return this.firestore.collection(COLLECTION).valueChanges() as Observable<any>
+  getInvites() : any{
+    return this.firestore.collection(COLLECTION).valueChanges()
   }
 
 }

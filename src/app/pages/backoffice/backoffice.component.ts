@@ -9,24 +9,21 @@ import {FirebaseService, Invite, Participant} from "../../services/firebase.serv
 export class BackofficeComponent implements OnInit {
 
   invites: Invite[] = [];
-  children: number = 0;
+  totalChildren: number = 0;
 
   constructor(private firebase: FirebaseService) {}
 
   ngOnInit(): void {
-
-    this.firebase.getInvites().subscribe(invites => {
-      console.log(invites)
+    this.firebase.getInvites().subscribe((invites:Invite[]) => {
       this.invites = invites
 
-      this.children=0
       this.invites.forEach(invite => {
-        this.children += this.countChildren(invite.participants = [])
+        this.totalChildren += this.countChildren(invite.participants)
       })
-      console.log(this.children)
+      console.log(this.totalChildren)
     })
   }
-  countChildren(participants: Participant[]) {
+  countChildren(participants: Participant[] = []) {
     return participants.filter(participant => participant.isChild).length
   }
 }
