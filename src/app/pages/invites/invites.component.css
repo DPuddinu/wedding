@@ -1,5 +1,5 @@
 .invites-container {
-  max-width: 50%;
+  width: 100%;
 }
 form {
   height: fit-content;
@@ -12,4 +12,15 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (min-width: 1000px) {
+
+  .more-field {
+    width: 50%;
+  }
+
+  .invites-container {
+    max-width: 50%;
+  }
 }
