@@ -24,12 +24,9 @@ export class BackofficeComponent implements OnInit {
       this.invites = invites
       this.invites.forEach(invite => {
         if(invite.confirm){
-          console.log(invite)
           this.totalConfirms +=1
           this.totalConfirms += invite.participants.length
           this.totalChildren += this.countChildren(invite.participants)
-
-          console.log(this.totalConfirms)
         }
       })
     })
@@ -37,12 +34,7 @@ export class BackofficeComponent implements OnInit {
 
   deleteInvite = (invite:Invite) => {
     this.firebase.removeInviteById(invite.id).subscribe(t=> {
-        // delete invites from list
-      // if(invite.confirm){
-      //   this.totalConfirms -=1
-      //   this.totalConfirms -= invite.participants.length
-      //   this.totalChildren -= this.countChildren(invite.participants)
-      // }
+      // OTHER THINGS TO DO
     })
   }
 
