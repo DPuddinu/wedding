@@ -6,9 +6,9 @@
   </div>
   <div class="col mt-2">
     <div class="w-100 d-flex flex-wrap">
-      <div *ngFor="let invite of invites" class="invite-card p-3">
-        <div class="card shadow-sm">
-          <div class="rounded-circle  delete-icon shadow-sm" (click)="openDialog(invite)">
+      <div *ngFor="let invite of invites" class="invite-card p-3"(click)="setCounted(invite)">
+        <div class="card shadow-sm"[ngClass]="invite.counted ? 'bg-secondary bg-opacity-25' :''">
+          <div class="rounded-circle delete-icon shadow-sm" (click)="openDialog(invite)" >
             <mat-icon>delete</mat-icon>
           </div>
           <div class="row">
@@ -17,7 +17,7 @@
               <p><strong>Cognome:</strong>{{" " +invite.surname}}</p>
               <p><strong>Conferma:</strong><span [ngClass]="invite.confirm? 'text-success':'text-danger'" class="fw-bold">{{" " +yesOrNo(invite)}}</span></p>
               <p *ngIf="invite.questions" ><strong>Domande:</strong>{{" " +invite.questions}}</p>
-
+              <p><strong>Email:</strong>{{" " +invite.email}}</p>
             </div>
             <div class="col-6">
               <p *ngIf="invite.participants && invite.participants.length>0">

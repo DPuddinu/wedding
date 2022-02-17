@@ -21,7 +21,8 @@ export const emptyInvite: Invite = {
   }],
   confirm: false,
   allergies: '',
-  email: ''
+  email: '',
+  counted: false
 };
 
 @Injectable({
@@ -40,6 +41,9 @@ export class FirebaseService {
   removeInviteById(inviteId = '') {
     return from(this.firestore.doc(COLLECTION + "/"+inviteId).delete());
   }
+  countInvite(invite: Invite) {
+    return from(this.firestore.doc(COLLECTION + "/"+invite.id).update({counted: !invite.counted}));
+  }
 }
 
 export interface Invite {
@@ -50,7 +54,8 @@ export interface Invite {
   confirm: boolean,
   participants: Participant[],
   questions?: string,
-  allergies?: string
+  allergies?: string,
+  counted?:boolean
 }
 export interface Participant {
   id: string,
