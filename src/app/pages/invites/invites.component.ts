@@ -25,12 +25,16 @@ export class InvitesComponent implements OnInit {
   }
 
   addParticipant() {
-    this.invite?.participants?.push({
-      id: uuidv4(),
-      name:'',
-      surname:'',
-      isChild:false
-    })
+    const part = this.invite.participants
+    const lastPart = this.invite.participants[part.length-1]
+    if(part && lastPart.name !== '' && lastPart.surname !== ''){
+      this.invite?.participants?.push({
+        id: uuidv4(),
+        name:'',
+        surname:'',
+        isChild:false
+      })
+    }
   }
 
   onSuccess() {
@@ -40,14 +44,13 @@ export class InvitesComponent implements OnInit {
   sendInvite() {
     const newInvite = {...this.invite}
     const participants = newInvite.participants
-    if(participants && participants.length>1 && participants[participants.length-1].name===''){
-      participants.pop()
-    }
-    this.firebase.saveInvite(this.invite).subscribe({
-      next: () => {
-        this.onSuccess();
-      },
-      error: this.onError
+
+    const validParticipants = participants.filter(part => part.name !== '' && part.surname !== '')
+    newInvite.participants = validParticipants? validParticipants : []
+
+    this.firebase.saveInvite(newInvite).subscribe({
+      next: ()=>this.onSuccess(),
+      error: ()=>this.onError()
     })
   }
 
