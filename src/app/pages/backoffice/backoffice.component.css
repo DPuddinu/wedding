@@ -1,8 +1,12 @@
 p {
   margin: 1rem;
 }
+.summary {
+  min-width: 150px;
+}
 .invite-card {
-  width: 29vw;
+  width: 300px;
+  height: 170px;
 }
 .total-card {
   width: 10vw;

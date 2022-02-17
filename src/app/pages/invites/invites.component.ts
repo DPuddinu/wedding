@@ -55,7 +55,7 @@ export class InvitesComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(ConfirmDialogComponent, {data: {}});
+    this.dialog.open(ConfirmDialogComponent, {data: {confirm:this.invite.confirm}});
   }
 
   onChildConfirm(index: number, isChild: boolean) {
