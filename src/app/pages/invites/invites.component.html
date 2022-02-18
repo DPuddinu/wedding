@@ -82,7 +82,7 @@
       <div class="d-flex flex-column">
         <div class="row">
           <div class="col-6">
-            <div class="d-flex flex-column flex-lg-row">
+            <div class="d-flex flex-column flex-lg-row ">
               <!--NOME-->
               <mat-form-field appearance="fill" class="more-field p-1">
                 <mat-label *ngIf="part.name === ''">Nome</mat-label>
@@ -100,7 +100,7 @@
 
           <div class="col-6">
             <!--IS CHILD-->
-            <div class="d-flex flex-column flex-lg-row ">
+            <div class="d-flex flex-column flex-sm-row mt-3">
               <p class="d-flex align-items-center text-secondary ms-1 me-2 m-0 p-1">è un bambino?</p>
               <div class="d-flex ms-1 align-items-center p-1">
                 <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
