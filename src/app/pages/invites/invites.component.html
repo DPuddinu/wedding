@@ -1,4 +1,4 @@
-<div class="h-100 w-100 bg-dark bg-opacity-10 d-flex">
+<div class="w-100 bg-dark bg-opacity-10 d-flex mb-2 form-container">
   <form #invitesForm="ngForm" class="m-2 p-2 rounded shadow card invites-container" matInput>
 
     <div class="d-flex flex-column flex-md-row">
@@ -41,7 +41,7 @@
     </div>
 
     <!--EMAIL-->
-    <mat-form-field appearance="fill" class="w-100">
+    <mat-form-field appearance="fill" class="w-100 p-1">
       <mat-label>Email</mat-label>
       <input id="email"
              email="true"
@@ -70,7 +70,13 @@
     </div>
 
     <!-- ALTRI PARTECIPANTI -->
-    <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
+    <div class="d-flex align-items-center p-1 mb-3">
+      <p class="text-secondary mt-2 ms-2">Altri partecipanti</p>
+      <div class="d-flex align-items-center ms-4" >
+        <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()" [disabled]="!invite.confirm">+</button>
+      </div>
+    </div>
+
 
     <div *ngFor="let part of invite.participants; let i = index">
       <div class="d-flex flex-column">
@@ -94,12 +100,12 @@
 
           <div class="col-6">
             <!--IS CHILD-->
-            <div class="d-flex align-items-center p-1">
-              <p class="text-secondary ms-2 me-2 mb-0">è un bambino?</p>
-              <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
-              <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild" [disabled]="!invite.confirm">No</mat-checkbox>
-              <div class="d-flex align-items-center ms-4" *ngIf="i==0">
-                <button mat-mini-fab color="accent" class="fab" (click)="addParticipant()" [disabled]="!invite.confirm">+</button>
+            <div class="d-flex flex-column flex-lg-row ">
+              <p class="d-flex align-items-center text-secondary ms-1 me-2 m-0 p-1">è un bambino?</p>
+              <div class="d-flex ms-1 align-items-center p-1">
+                <mat-checkbox (change)="onChildConfirm(i,true)" [checked] = "part.isChild" class="me-2" [disabled]="!invite.confirm">Si</mat-checkbox>
+                <mat-checkbox (change)="onChildConfirm(i,false)" [checked] = "!part.isChild" [disabled]="!invite.confirm">No</mat-checkbox>
+
               </div>
             </div>
           </div>
@@ -111,6 +117,7 @@
     <div class="w-100 d-flex justify-content-center align-items-center mt-2">
       <button mat-raised-button type="submit" [disabled]="invitesForm.invalid" (click)="sendInvite()">Invia</button>
     </div>
+
   </form>
 
 </div>

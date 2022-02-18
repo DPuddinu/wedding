@@ -1,6 +1,9 @@
 .invites-container {
   width: 100%;
 }
+.form-container {
+  min-height: 100%;
+}
 form {
   height: fit-content;
 }
