@@ -1,48 +1,77 @@
 <header>
-  <div class="container-fluid header-container">
-    <div class="row h-100">
+  <ng-container [ngSwitch]="screenSize">
+    <ng-container *ngSwitchCase="screenSizeService.getMobileType()">
+      <ng-container *ngTemplateOutlet="mobileTemplate"></ng-container>
 
-      <div class="col">
-        <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-6 d-none d-sm-block">
-            <div class=" d-flex link-container flex-wrap ">
-              <a routerLink="/gifts">
-                Lista Nozze
-              </a>
-              <a routerLink="/story">
-                La nostra storia
-              </a>
-              <a routerLink="/backoffice">
-                Backoffice
-              </a>
-            </div>
-          </div>
-      </div>
-      <div class="col">
-        <div class="title-container">
-          <h1 class="m-0 header-title-text">S&A 10.14.20</h1>
-        </div>
-      </div>
-      <div class="col">
-        <div class="d-none d-sm-flex bg-white rsvp-button d-flex justify-content-center ">
-          <h1 class="text-end d-flex justify-content-center align-items-center text-black m-0 ">
-            <a routerLink="/invites" class="text-black">
-              RSVP
-            </a>
-          </h1>
-        </div>
-      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="screenSizeService.getTabletType()">
+      <ng-container *ngTemplateOutlet="desktopTemplate"></ng-container>
+
+    </ng-container>
+    <ng-container *ngSwitchCase="screenSizeService.getDesktopType()">
+
+      <ng-container *ngTemplateOutlet="desktopTemplate"></ng-container>
+    </ng-container>
+  </ng-container>
+
+  <!--MOBILE-->
+  <ng-template #mobileTemplate>
+    <p>Yep mobile</p>
+  </ng-template>
+
+  <!--DESKTOP-->
+  <ng-template #desktopTemplate>
+    <p>Yep desktop</p>
+  </ng-template>
 
 
 
-      </div>
-      <div class="col-6 d-flex justify-content-end align-items-center pe-5">
 
-        <div class="d-block d-sm-none">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-        </div>
-      </div>
-    </div>
 
-  </div>
+<!--  <div class="container-fluid header-container">-->
+<!--    <div class="row h-100">-->
+
+<!--      <div class="col">-->
+<!--        <div class="row h-100 justify-content-center align-items-center">-->
+<!--          <div class="col-6 d-none d-sm-block">-->
+<!--            <div class=" d-flex link-container flex-wrap ">-->
+<!--              <a routerLink="/gifts">-->
+<!--                Lista Nozze-->
+<!--              </a>-->
+<!--              <a routerLink="/story">-->
+<!--                La nostra storia-->
+<!--              </a>-->
+<!--              <a routerLink="/backoffice">-->
+<!--                Backoffice-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--      <div class="col">-->
+<!--        <div class="title-container">-->
+<!--          <h1 class="m-0 header-title-text">S&A 10.14.20</h1>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col">-->
+<!--        <div class="d-none d-sm-flex bg-white rsvp-button d-flex justify-content-center ">-->
+<!--          <h1 class="text-end d-flex justify-content-center align-items-center text-black m-0 ">-->
+<!--            <a routerLink="/invites" class="text-black">-->
+<!--              RSVP-->
+<!--            </a>-->
+<!--          </h1>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+
+<!--      </div>-->
+<!--      <div class="col-6 d-flex justify-content-end align-items-center pe-5">-->
+
+<!--        <div class="d-block d-sm-none">-->
+<!--          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
 </header>

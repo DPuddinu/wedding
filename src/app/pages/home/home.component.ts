@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.screenType = this.screenSizeService.getScreenType(window.innerWidth)
-    console.log(this.screenType)
   }
 
   constructor(public screenSizeService: ScreenSizeService) { }

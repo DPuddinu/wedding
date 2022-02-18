@@ -18,6 +18,16 @@ export class ScreenSizeService {
     }
     return screenType
   }
+
+  getMobileType() {
+    return ScreenType.mobile
+  }
+  getTabletType() {
+    return ScreenType.tablet
+  }
+  getDesktopType() {
+    return ScreenType.desktop
+  }
 }
 
 export enum ScreenType {
