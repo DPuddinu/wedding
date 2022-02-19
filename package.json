@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-prod": "ng build --aot",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "i18n:extract": "ng extract-i18n --format json"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,7 @@
     "@angular/core": "~13.0.0",
     "@angular/fire": "^7.2.1",
     "@angular/forms": "~13.0.0",
+    "@angular/localize": "^13.2.3",
     "@angular/material": "^13.2.0",
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
@@ -33,7 +35,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.3",
+    "@angular-devkit/build-angular": "^13.2.4",
     "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.0",
     "@types/jasmine": "~3.10.0",

@@ -1,3 +1,5 @@
+@import "mobile.scss";
+
 .header-container {
   background: black;
   height: 15vh;

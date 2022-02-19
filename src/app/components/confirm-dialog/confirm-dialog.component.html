@@ -1,13 +1,13 @@
 <div class="d-flex justify-content-center align-items-center flex-column">
   <ng-container [ngSwitch]="confirm">
     <ng-container *ngSwitchCase="true">
-      <h3 class="text-center mb-2"><strong>Partecipazione inviata!</strong></h3>
-      <h3 class="text-center mb-4">Grazie per essere dei nostri 🥳</h3>
+      <h3 class="text-center mb-2"><strong i18n>Partecipazione inviata!</strong></h3>
+      <h3 class="text-center mb-4" i18n>Grazie per essere dei nostri 🥳</h3>
       <img src="https://c.tenor.com/ERD6qpbkgvgAAAAC/allaboardthelovetrain-scrubstvshow.gif" class="mb-2">
     </ng-container>
     <ng-container *ngSwitchCase="false">
-      <h3 class="text-center mb-2"><strong>Che peccato!</strong></h3>
-      <h3 class="text-center mb-4">Ci dispiace che non puoi partecipare 😟</h3>
+      <h3 class="text-center mb-2"><strong i18n>Che peccato!</strong></h3>
+      <h3 class="text-center mb-4" i18n>Ci dispiace che non puoi partecipare 😟</h3>
       <img src="/assets/images/spongbob.gif" class="mb-2">
     </ng-container>
   </ng-container>
