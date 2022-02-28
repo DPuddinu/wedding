@@ -3,3 +3,30 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+.font-t {font-family: Belleza, sans-serif;}
+
+.bg-footer {
+    background-color: #212d40;
+    color: #ffffff;
+}
+
+
+/* sovrascrive boostrap */
+.btn {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+.btn-color {
+    background:  linear-gradient(to left, #f46b45, #eea849);
+    border: 1px solid #eea149;
+    color: #ffffff;
+}
+.btn-color:hover, .btn-color:focus {
+    background: linear-gradient(to left, #ec5227, #ea992a);
+    border: 1px solid #ec9736;
+    color: #ffffff;
+}
