@@ -16,6 +16,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {FormsModule} from "@angular/forms";
 import { CustomDialogComponent } from './components/custom-dialog/custom-dialog.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { InfoComponent } from './pages/info/info.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     GiftsComponent,
     InvitesComponent,
     CustomDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    InfoComponent
   ],
   imports: [
     AppRoutingModule,

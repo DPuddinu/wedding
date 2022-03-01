@@ -1,18 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+@import "consts";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
 .font-t {font-family: Belleza, sans-serif;}
 
 .bg-footer {
-    background-color: #212d40;
+    background-color: $dark-blue;
     color: #ffffff;
 }
-
 
 /* sovrascrive boostrap */
 .btn {
@@ -21,12 +20,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 0.5rem;
 }
 .btn-color {
-    background:  linear-gradient(to left, #f46b45, #eea849);
+    background:  $dark-blue;
     border: 1px solid #eea149;
     color: #ffffff;
 }
 .btn-color:hover, .btn-color:focus {
-    background: linear-gradient(to left, #ec5227, #ea992a);
+    background: $dark-blue;
     border: 1px solid #ec9736;
     color: #ffffff;
 }
