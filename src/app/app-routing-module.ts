@@ -5,7 +5,7 @@ import {GiftsComponent} from "./pages/gifts/gifts.component";
 import {StoryComponent} from "./pages/story/story.component";
 import {InvitesComponent} from "./pages/invites/invites.component";
 import {BackofficeComponent} from "./pages/backoffice/backoffice.component";
-import {InfoComponent} from "./pages/info/info.component"; // CLI imports router
+import {InfoComponent} from "./pages/info/info.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
