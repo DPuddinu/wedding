@@ -6,11 +6,12 @@
 }
 
 .img-home {
-    background-image: url(../../../assets/images/img-home.jpeg);
+    background-image: url(../../../assets/images/IMG_0577.JPEG);
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
-    height: 93vh;
+    height: 112vh;
+    background-position-y: -170px;
 }
 
 .text-home {
@@ -18,7 +19,7 @@
     color: white;
     position: absolute;
     width: 100%;
-    top: 40vh;
+    top: 35vh;
 }
 .text-home p{
     text-shadow: 5px 2px 10px #000000;
