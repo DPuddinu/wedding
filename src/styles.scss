@@ -12,6 +12,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: $dark-blue;
     color: #ffffff;
 }
+.font-weight-normal {
+    font-weight: 400;
+}
 
 /* sovrascrive boostrap */
 .btn {
