@@ -21,11 +21,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .btn-color {
     background:  $dark-blue;
-    border: 1px solid #eea149;
+    border: 1px solid $dark-blue;
     color: #ffffff;
 }
 .btn-color:hover, .btn-color:focus {
     background: $dark-blue;
-    border: 1px solid #ec9736;
+    border: 1px solid $dark-blue;
+    //border: 1px solid #ec9736;
     color: #ffffff;
 }
