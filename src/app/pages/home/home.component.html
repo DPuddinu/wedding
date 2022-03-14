@@ -2,32 +2,35 @@
 
 <div class="img-home">
     <div class="text-home">
-        <p class="h3 font-weight-normal" i18n>Ci sposiamo!</p>
+        <p class="h3 font-weight-normal font-t" i18n>Ci sposiamo!</p>
         <p class="display-2 font-weight-normal py-4 font-t">Viola e Gabriele</p>
-        <p class="h3 font-weight-normal">17/07/22</p>
+        <p class="h3 font-weight-normal font-t">17/07/22</p>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row align-items-center py-5 text-center p-5">
-        <div class="col-12 col-md-6 p-lg-5">
-            <img src="../../../assets/images/img-verticale.jpg" class="img-fluid" width="800" height="1000">
+        <div class="col-12 col-md-6 p-lg-5" >
+          <google-map [center]="coordinates[0]" >
+            <map-marker [position]="coordinates[0]"></map-marker>
+          </google-map>
         </div>
         <div class="col-12 col-md-6 p-lg-5">
             <p class="display-3 font-weight-normal font-t mb-5" i18n>Cerimonia</p>
-            <p class="h3 font-weight-normal mb-4" i18n>orario</p>
-            <p class="h4 font-weight-normal" i18n>indirizzo</p>
+            <p class="h3 font-weight-normal mb-4 font-t" i18n>17:00</p>
+            <p class="h4 font-weight-normal font-t" i18n>Via Alcide De Gasperi 2</p>
         </div>
     </div>
 
     <div class="row align-items-center py-5 text-center p-5">
         <div class="col-12 col-md-6 p-lg-5">
             <p class="display-3 font-weight-normal font-t mb-5" i18n>Ricevimento</p>
-            <p class="h3 font-weight-normal mb-4" i18n>orario</p>
-            <p class="h4 font-weight-normal" i18n>indirizzo</p>
+            <p class="h3 font-weight-normal mb-4 font-t" i18n>18:00</p>
+            <p class="h4 font-weight-normal font-t" i18n>Gli Oleandri SP1</p>
         </div>
         <div class="col-12 col-md-6 p-lg-5">
-            <img src="../../../assets/images/img-verticale.jpg" class="img-fluid" width="800" height="1000">
+          <google-map [center]="coordinates[1]" class="img-fluid">
+          </google-map>
         </div>
     </div>
 </div>
@@ -40,17 +43,11 @@
 <div class="container-fluid text-center py-5">
     <div class="m-lg-5 bg-light d-flex align-items-center justify-content-center" style="height:500px;">
         <div class="py-5">
-            <p class="h2 font-weight-normal" i18n>Festeggia con noi!</p>
+            <p class="h2 font-weight-normal font-t" i18n>Festeggia con noi!</p>
             <p class="display-2 font-weight-normal py-4 font-t" i18n>Conferma la tua presenza</p>
             <a routerLink="/invites" class="btn btn-color px-5" i18n>Conferma qui</a>
         </div>
     </div>
 </div>
 
-
-<!-- footer -->
-<div class="bg-footer">
-    <div class="container-fluid text-center py-5">
-        footer
-    </div>
-</div>
+<app-footer></app-footer>

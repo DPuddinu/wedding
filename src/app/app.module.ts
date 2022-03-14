@@ -17,7 +17,8 @@ import {FormsModule} from "@angular/forms";
 import { CustomDialogComponent } from './components/custom-dialog/custom-dialog.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { InfoComponent } from './pages/info/info.component';
-
+import { FooterComponent } from './footer/footer.component';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InfoComponent } from './pages/info/info.component';
     InvitesComponent,
     CustomDialogComponent,
     ConfirmDialogComponent,
-    InfoComponent
+    InfoComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutingModule,
@@ -39,7 +41,8 @@ import { InfoComponent } from './pages/info/info.component';
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

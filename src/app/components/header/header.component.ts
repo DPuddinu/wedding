@@ -2,7 +2,23 @@ import {Component, Input, OnInit, } from '@angular/core';
 import {ScreenSizeService, ScreenType} from "../../services/screen-size.service";
 
 export const ANIMATION_DURATION = 250
-
+export const MENU_LINKS = [
+  {
+    route: '/story',
+    label: 'La nostra storia'
+  },
+  {
+    route: '/info',
+    label: 'Viaggio e alloggio'
+  },
+  {
+    label: 'Lista Nozze'
+  },
+  {
+    route: '/invites',
+    label: 'RSVP'
+  },
+]
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,27 +26,7 @@ export const ANIMATION_DURATION = 250
 })
 export class HeaderComponent implements OnInit{
 
-  menuItems: MenuItem[] = [
-    {
-      route: '/story',
-      label: 'La nostra storia'
-    },
-    {
-      route: '/info',
-      label: 'Viaggio e alloggio'
-    },
-    {
-      label: 'Lista Nozze'
-    },
-    {
-      route: '/backoffice',
-      label: 'Backoffice'
-    },
-    {
-      route: '/invites',
-      label: 'RSVP'
-    },
-  ]
+  menuItems: MenuItem[] = MENU_LINKS
 
   menuOpen = false;
 
@@ -47,7 +43,7 @@ export class HeaderComponent implements OnInit{
     openClose()
   }
 }
-interface MenuItem {
+export interface MenuItem {
   route?: string,
   label: string
 }

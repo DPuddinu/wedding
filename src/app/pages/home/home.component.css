@@ -6,7 +6,7 @@
 }
 
 .img-home {
-    background-image: url(../../../assets/images/IMG_0577.JPEG);
+    background-image: url(../../../assets/images/IMG_0577.jpg);
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
@@ -23,4 +23,8 @@
 }
 .text-home p{
     text-shadow: 5px 2px 10px #000000;
+}
+google-map {
+  width: 800px;
+  height: 1000px;
 }

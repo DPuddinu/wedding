@@ -1,0 +1,22 @@
+.text-info {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+a{
+  text-decoration: none;
+
+}
+p {
+  text-align: center;
+  line-height: 1.5;
+}
+.address-container{
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+address{
+  flex: 1 0 20%; /* explanation below */
+}
