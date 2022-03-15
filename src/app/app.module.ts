@@ -17,7 +17,7 @@ import {FormsModule} from "@angular/forms";
 import { CustomDialogComponent } from './components/custom-dialog/custom-dialog.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { InfoComponent } from './pages/info/info.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({

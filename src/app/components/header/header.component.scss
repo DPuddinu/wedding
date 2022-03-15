@@ -11,6 +11,11 @@ h2 {
   box-sizing: border-box;
 }
 
+.center-date{
+  position: absolute;
+  left: 50%;
+}
+
 .top-nav {
   display: flex;
   flex-direction: row;

@@ -2,34 +2,42 @@
 
 <div class="img-home">
     <div class="text-home">
-        <p class="h3 font-weight-normal font-t" i18n>Ci sposiamo!</p>
+        <p class="h2 font-weight-normal font-t" i18n>Ci sposiamo!</p>
         <p class="display-2 font-weight-normal py-4 font-t">Viola e Gabriele</p>
-        <p class="h3 font-weight-normal font-t">17/07/22</p>
+        <p class="h2 font-weight-normal font-t">17/07/22</p>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row align-items-center py-5 text-center p-5">
-        <div class="col-12 col-md-6 p-lg-5" >
-          <google-map [center]="coordinates[0]" >
-            <map-marker [position]="coordinates[0]"></map-marker>
-          </google-map>
-        </div>
-        <div class="col-12 col-md-6 p-lg-5">
+
+        <div class="col-12 p-lg-5">
             <p class="display-3 font-weight-normal font-t mb-5" i18n>Cerimonia</p>
-            <p class="h3 font-weight-normal mb-4 font-t" i18n>17:00</p>
-            <p class="h4 font-weight-normal font-t" i18n>Via Alcide De Gasperi 2</p>
+            <p class="h3 font-weight-normal font-t" i18n>Pinacoteca Giuseppe Altana</p>
+            <p class="h4 font-weight-normal font-t" i18n>Via Alcide De Gasperi 2, 17:00</p>
         </div>
+      <div class="col-12 p-lg-5 mt-2 mb-2">
+        <img #imgContainer src="../../../assets/images/pinacoteca.jpg" class="img-fluid" width="800" height="1000">
+      </div>
+      <div class="col-12 p-lg-5 d-flex justify-content-center align-items-center">
+        <google-map [center]="coordinates[0]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
+          <map-marker [position]="coordinates[0]"></map-marker>
+        </google-map>
+      </div>
+
     </div>
 
     <div class="row align-items-center py-5 text-center p-5">
-        <div class="col-12 col-md-6 p-lg-5">
+        <div class="col-12 p-lg-5">
             <p class="display-3 font-weight-normal font-t mb-5" i18n>Ricevimento</p>
-            <p class="h3 font-weight-normal mb-4 font-t" i18n>18:00</p>
-            <p class="h4 font-weight-normal font-t" i18n>Gli Oleandri SP1</p>
+            <p class="h3 font-weight-normal font-t" i18n>Sala Ricevimenti Gli Oleandri</p>
+            <p class="h4 font-weight-normal font-t" i18n>Regione manighedda SP1, 18:00</p>
         </div>
-        <div class="col-12 col-md-6 p-lg-5">
-          <google-map [center]="coordinates[1]" class="img-fluid">
+      <div class="col-12 p-lg-5 mt-2 mb-2">
+        <img src="../../../assets/images/oleandri.jpg" class="img-fluid" width="800" height="1000">
+      </div>
+        <div class="col-12 p-lg-5 d-flex justify-content-center align-items-center">
+          <google-map [center]="coordinates[1]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
           </google-map>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ScreenSizeService, ScreenType} from "../../services/screen-size.service";
 
 @Component({
@@ -31,18 +31,33 @@ export class HomeComponent implements OnInit, AfterViewInit {
     minZoom: 8,
   }
 
+  mapWidth: any
+  mapHeight: any
+
+  @ViewChild('imgContainer') container : ElementRef | undefined;
+
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.screenType = this.screenSizeService.getScreenType(window.innerWidth)
+    this.updateMapSize()
   }
 
-  constructor(public screenSizeService: ScreenSizeService) { }
+  constructor(public screenSizeService: ScreenSizeService) {
+    this.updateMapSize()
+  }
 
   ngOnInit(): void {
+    setTimeout(()=> {
+      this.onResize()
+    })
   }
 
   ngAfterViewInit(): void {
     this.onResize()
   }
 
+  //setting map size equal to image
+  updateMapSize() {
+    this.mapWidth = this.container?.nativeElement.offsetWidth
+    this.mapHeight = this.container?.nativeElement.offsetHeight
+  }
 }

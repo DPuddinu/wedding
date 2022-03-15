@@ -12,6 +12,7 @@ export const MENU_LINKS = [
     label: 'Viaggio e alloggio'
   },
   {
+    route: '/gifts',
     label: 'Lista Nozze'
   },
   {
