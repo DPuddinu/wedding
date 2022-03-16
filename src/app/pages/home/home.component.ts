@@ -57,7 +57,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   //setting map size equal to image
   updateMapSize() {
-    this.mapWidth = this.container?.nativeElement.offsetWidth
-    this.mapHeight = this.container?.nativeElement.offsetHeight
+    if (window.innerWidth>1600){ 
+      this.mapWidth = this.container?.nativeElement.offsetWidth*0.9
+      this.mapHeight = this.container?.nativeElement.offsetHeight*0.67
+    } 
+    else if (window.innerWidth>1200){ 
+      this.mapWidth = this.container?.nativeElement.offsetWidth*0.9
+      this.mapHeight = this.container?.nativeElement.offsetHeight*0.55
+    } 
+      else {
+        this.mapWidth = this.container?.nativeElement.offsetWidth
+        this.mapHeight = 350
+    }
   }
 }
