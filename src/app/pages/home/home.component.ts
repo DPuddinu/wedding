@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   zoom = 12
   coordinates = [
     {
-    lat: 40.587418,
-    lng: 9.0000463
+    lat: 40.5880364,
+    lng: 9.0021391
     },
     {
       lat: 40.6063108,

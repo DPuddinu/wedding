@@ -1,4 +1,13 @@
-.content {
+.parent {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  padding: 2rem;
+}
+
+main {
   display: grid;
   place-items: center;
 }
