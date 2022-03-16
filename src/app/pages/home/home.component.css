@@ -27,6 +27,21 @@
 
 
 
+@media (max-width: 600px) {
+    .img-home {
+        background-size: cover;
+        height: 400px;
+        background-position-y: 0;
+    }
+    .text-home {
+        text-align: center;
+        color: white;
+        position: absolute;
+        width: 100%;
+        top: 150px;
+    }
+}
+
 @media (min-width: 1200px) {
     .img-home .display-1{
         font-size: 7rem;
