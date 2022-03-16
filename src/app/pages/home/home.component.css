@@ -24,3 +24,11 @@
 .text-home p{
     text-shadow: 5px 2px 10px #000000;
 }
+
+
+
+@media (min-width: 1200px) {
+    .img-home .display-1{
+        font-size: 7rem;
+    }
+}

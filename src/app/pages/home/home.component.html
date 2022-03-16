@@ -2,48 +2,49 @@
 
 <div class="img-home">
     <div class="text-home">
-        <p class="h2 font-weight-normal font-t" i18n>Ci sposiamo!</p>
-        <p class="display-2 font-weight-normal py-4 font-t">Viola e Gabriele</p>
-        <p class="h2 font-weight-normal font-t">17/07/22</p>
+        <p class="display-5 font-weight-normal font-t" i18n>Ci sposiamo!</p>
+        <p class="display-1 font-weight-normal py-4 font-t">Viola e Gabriele</p>
+        <p class="h1 font-weight-normal font-t">17/07/22</p>
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row align-items-center text-center p-5">
-
-        <div class="col-12 ">
-            <p class="display-3 font-weight-normal font-t mb-5" i18n>Cerimonia</p>
-            <p class="h3 font-weight-normal font-t" i18n>Pinacoteca Giuseppe Altana</p>
-            <p class="h4 font-weight-normal font-t" i18n>Via Alcide De Gasperi 2, 17:00</p>
-        </div>
-      <div class="col-12 p-lg-5 mt-2 mb-2">
-        <img #imgContainer src="../../../assets/images/pinacoteca.jpg" class="img-fluid" width="800" height="1000">
+<div class="container-fluid pt-5 mt-5">
+    
+  <div class="bg-light row align-items-center text-center my-5">
+      <div class="col-12 col-lg-6 py-5 ">
+          <p class="display-2 font-weight-normal font-t my-4 text-oro" i18n>Cerimonia</p>
+          <p class="h4 mb-3 font-weight-normal" i18n>Pinacoteca Giuseppe Altana</p>
+          <p class="font-weight-normal" i18n>Via Alcide De Gasperi 2, 17:00</p>
+          <div class="d-flex justify-content-center align-items-center my-5">
+            <google-map [center]="coordinates[0]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
+              <map-marker [position]="coordinates[0]"></map-marker>
+            </google-map>
+          </div>
       </div>
-      <div class="col-12 p-lg-5 d-flex justify-content-center align-items-center">
-        <google-map [center]="coordinates[0]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
-          <map-marker [position]="coordinates[0]"></map-marker>
-        </google-map>
+      <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+        <img #imgContainer src="../../../assets/images/pinacoteca.jpg" class="img-fluid my-5" width="800" height="800">
       </div>
 
     </div>
 
-    <div class="row align-items-center text-center p-5 py-0">
-        <div class="col-12 ">
-            <p class="display-3 font-weight-normal font-t mb-5" i18n>Ricevimento</p>
-            <p class="h3 font-weight-normal font-t" i18n>Sala Ricevimenti Gli Oleandri</p>
-            <p class="h4 font-weight-normal font-t" i18n>Regione manighedda SP1, 18:00</p>
+    <div class="bg-light row align-items-center text-center py-0">
+        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">">
+          <img src="../../../assets/images/oleandri.jpg" class="img-fluid" width="800" height="1000">
         </div>
-      <div class="col-12 p-lg-5 mt-2 mb-2">
-        <img src="../../../assets/images/oleandri.jpg" class="img-fluid" width="800" height="1000">
+        <div class="col-12 col-lg-6 py-5 ">
+          <p class="display-2 font-weight-normal font-t my-4 text-oro" i18n>Ricevimento</p>
+          <p class="h4 font-weight-normal" i18n>Sala Ricevimenti Gli Oleandri</p>
+          <p class="font-weight-normal" i18n>Regione manighedda SP1, 18:00</p>
+          <div class="d-flex justify-content-center align-items-center my-5">
+            <google-map [center]="coordinates[0]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
+              <map-marker [position]="coordinates[0]"></map-marker>
+            </google-map>
+          </div>
       </div>
-        <div class="col-12 p-lg-5 d-flex justify-content-center align-items-center">
-          <google-map [center]="coordinates[1]" [height]="mapHeight" [width]="mapWidth" *ngIf="mapHeight && mapWidth">
-          </google-map>
-        </div>
     </div>
 </div>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center py-5 my-5">
     <p class="display-4 font-t my-5" i18n>Scopri come è iniziato tutto</p>
     <a routerLink="/story" class="btn btn-color px-5" i18n>La nostra storia</a>
 </div>

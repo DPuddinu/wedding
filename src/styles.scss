@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Ephesis&family=Hurricane&family=Belleza&family=Lato:wght@300;400;700&display=swap');
 @import "consts";
 
 $small-screen-up: 601px !default;
@@ -20,11 +20,11 @@ $interval-size: $range / $intervals !default;
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Lato, Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
 }
 
-.font-t {font-family: Belleza, sans-serif;}
+.font-t {font-family: "Dancing+Script", "Ephesis", "Hurricane", "Belleza", sans-serif;}
 
 .font-weight-normal {
     font-weight: 400;
@@ -66,4 +66,16 @@ body {
 }
 a{
   text-decoration: none;
+}
+.text-oro {
+  color: #b8a16f;
+}
+.hidden {
+  visibility: hidden;
+}
+
+@media (min-width: 1600px) {
+  body {
+    font-size: 18px!important;
+  }
 }
