@@ -10,8 +10,7 @@
     background-repeat:no-repeat;
     background-size: cover;
     background-position: center;
-    height: 112vh;
-    background-position-y: -170px;
+    height: 110vh;
 }
 
 .text-home {
@@ -42,8 +41,12 @@
     }
 }
 
+
 @media (min-width: 1200px) {
     .img-home .display-1{
         font-size: 7rem;
+    }
+    .img-home {
+        background-position-y: -170px;
     }
 }
