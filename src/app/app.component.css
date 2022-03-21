@@ -1,0 +1,14 @@
+main * {
+  width: 100%!important;
+}
+.parent {
+  display: grid;
+  height: 100vh!important;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
