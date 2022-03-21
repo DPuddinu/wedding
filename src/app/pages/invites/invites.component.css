@@ -4,9 +4,7 @@
 .form-container {
   min-height: 100%;
 }
-form {
-  height: fit-content;
-}
+
 mat-form-field {
   margin-bottom: 0.5rem;
 }

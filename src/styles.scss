@@ -186,3 +186,13 @@ a{
     padding-top: 3rem !important;
   }
 }
+.parent {
+  display: grid;
+  height: 100vh!important;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  display: grid;
+  place-items: center;
+}
