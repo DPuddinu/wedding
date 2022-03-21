@@ -1,9 +1,11 @@
-<div class="bg-dark bg-opacity-10 row w-100 m-0 backoffice-container">
+<div class="bg-dark bg-opacity-10 row w-100 m-0">
 
-  <div class="bg-white total-card p-2 col-1 text-center summary">
+  <!-- SIDEBAR -->
+  <div class="bg-white total-card p-2  text-center summary">
     <h3><strong>Totale conferme:</strong>{{" " +totalConfirms}}</h3>
     <h3><strong>Totale bambini:</strong>{{" " +totalChildren}}</h3>
   </div>
+  <!-- MAIN CONTENT -->
   <div class="col mt-2">
     <div class="w-100 d-flex flex-wrap">
       <div *ngFor="let invite of invites" class="invite-card p-3"(click)="setCounted(invite)">
@@ -31,7 +33,6 @@
               <p *ngIf="invite.allergies" class="ms-0"><strong>Restrizioni alimentari:</strong>{{" " +invite.allergies}}</p>
             </div>
           </div>
-
         </div>
       </div>
     </div>

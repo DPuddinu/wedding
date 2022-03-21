@@ -11,9 +11,6 @@ p {
 .total-card {
   width: 10vw;
 }
-.backoffice-container {
-  min-height: 100%;
-}
 .delete-icon{
   position: absolute;
   width: 30px;
@@ -30,4 +27,10 @@ mat-icon {
   color: #eeeeee;
   cursor: pointer;
   font-size: 21px;
+}
+@media (max-width: 475px) {
+
+  .summary {
+    min-width: 100%;
+  }
 }

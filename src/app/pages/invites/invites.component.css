@@ -1,7 +1,7 @@
 .invites-container {
   width: 100%;
 }
-.form-container {
+form {
   min-height: 100%;
 }
 
@@ -21,7 +21,7 @@ input:-webkit-autofill:active {
     width: 50%;
   }
 
-  .invites-container {
+  form {
     max-width: 50%;
   }
 }
